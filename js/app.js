@@ -77,7 +77,7 @@ function startRecording() {
 		  }
 		});
 
-		recorder.onComplete = async function(recorder, blob) { 
+		recorder.onComplete = function(recorder, blob) { 
 			
 		    var reader = new FileReader();
 		    reader.readAsDataURL(blob);
@@ -86,18 +86,16 @@ function startRecording() {
 			 base64String = base64String.substr(base64String.indexOf(',') + 1);
 			__log("Encoding complete");
 			encodingTypeSelect.disabled = false;
-			
-			let respose = fetch('https://predict-ailab.uruit.com/audio/classification/predict/401618c0-a23c-11eb-95d6-aa20eddd2f57', {
+			createDownloadLink(blob,recorder.encoding);
+			    
+			fetch('https://predict-ailab.uruit.com/audio/classification/predict/401618c0-a23c-11eb-95d6-aa20eddd2f57', {
 				    method: 'POST',
 				    headers: {
 					'accept': 'application/json',
 					'Content-Type': 'application/json'
 				    },
 				    body: JSON.stringify({"format":"ogg","base64_audio":base64String})
-				});
-			let result = await response.json().result;
-			alert(result);
-			createDownloadLink(blob,recorder.encoding);			    
+				}).then(response => response.json()).then(res => alert(res.result));
 		    };
 			
 
