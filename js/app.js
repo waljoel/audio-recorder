@@ -19,7 +19,7 @@ var stopButton = document.getElementById("stopButton");
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 
-function startRecording() {
+async function startRecording() {
 	console.log("startRecording() called");
 
 	/*
