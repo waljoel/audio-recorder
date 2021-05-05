@@ -81,10 +81,11 @@ function startRecording() {
 			__log("Encoding complete");
 			createDownloadLink(blob,recorder.encoding);
 			encodingTypeSelect.disabled = false;
+			alert('Sending audio to analize")
 		}
 
 		recorder.setOptions({
-		  timeLimit:120,
+		  timeLimit:5,
 		  encodeAfterRecord:encodeAfterRecord,
 	      ogg: {quality: 0.5},
 	      mp3: {bitRate: 160}
