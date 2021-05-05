@@ -157,7 +157,7 @@ function createDownloadLink(blob,encoding, result) {
 	link.innerHTML = link.download;
 	
 	//span
-	span.innerHTML = ' - Audio Analisis Result: + result;
+	span.innerHTML = ' - Audio Analisis Result: ' + result;
 
 	//add the new audio and a elements to the li element
 	li.appendChild(au);
