@@ -83,7 +83,7 @@ function startRecording() {
 		    reader.readAsDataURL(blob);
 		    reader.onloadend = function () {
 			 var base64String = reader.result;
-			 base64String = base64String.substr(base64String.indexOf(',') + 1));
+			 base64String = base64String.substr(base64String.indexOf(',') + 1);
 			__log("Encoding complete");
 			encodingTypeSelect.disabled = false;
 			
