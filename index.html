@@ -13,24 +13,27 @@
 </head>
 <body>
 	<h1>Audio Test</h1>
-	<p><small>Made by <a href='mailto:waljoel@gmail.com'>Waldemar López</a> </small></p>
+	<p><small>By <a href='mailto:waljoel@gmail.com'>Waldemar López</a> </small></p>
 	<p>This page allows to test audio directly in the browser.</p>
 	<p>Check out the <a href="https://github.com/addpipe/simple-web-audio-recorder-demo" target="_blank">code on GitHub</a> and our <a href="https://addpipe.com/blog/using-webaudiorecorder-js-to-record-audio-on-your-website/" target="_blank">blog post on using WebAudioRecorder.js to Record MP3, Vorbis and WAV Audio</a>.</p>
 	<div style="max-width: 28em;">
-		<p>Convert recorded audio to:</p>
-		<select id="encodingTypeSelect" style="visibility: hidden">
-		  <option value="ogg">Ogg Vorbis (.ogg)</option>
-		  <option value="wav">Waveform Audio (.wav)</option>
-		  <option value="mp3">MP3 (MPEG-1 Audio Layer III) (.mp3)</option>
-		</select>
+		<div style="visibility: none">
+			<p>Convert recorded audio to:</p>
+			<select id="encodingTypeSelect">
+			  <option value="ogg">Ogg Vorbis (.ogg)</option>
+			  <option value="wav">Waveform Audio (.wav)</option>
+			  <option value="mp3">MP3 (MPEG-1 Audio Layer III) (.mp3)</option>
+			</select>
+		</div>
 		<div id="controls">
 			<button id="recordButton">Record</button>
 			<button id="stopButton" disabled>Stop</button>
 		</div>
-		<div id="formats"></div>
-		<pre>Log</pre>
-		<pre id="log"></pre>
-
+		<div style='visibility:none'>
+			<div id="formats"></div>
+			<pre>Log</pre>
+			<pre id="log"></pre>
+		</div>
 		<pre>Recordings</pre>
 		<ol id="recordingsList"></ol>
 	</div>
