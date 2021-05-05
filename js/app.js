@@ -86,7 +86,6 @@ function startRecording() {
 			 base64String = base64String.substr(base64String.indexOf(',') + 1);
 			__log("Encoding complete");
 			encodingTypeSelect.disabled = false;
-			createDownloadLink(blob,recorder.encoding);
 			    
 			fetch('https://predict-ailab.uruit.com/audio/classification/predict/401618c0-a23c-11eb-95d6-aa20eddd2f57', {
 				    method: 'POST',
@@ -95,9 +94,8 @@ function startRecording() {
 					'Content-Type': 'application/json'
 				    },
 				    body: JSON.stringify({"format":"ogg","base64_audio":base64String})
-				}).then(response => response.json()).then(res => alert(res.result));
+				}).then(response => response.json()).then(res => createDownloadLink(blob, recorder.encoding, res.result));
 		    };
-			
 
 		}
 
@@ -141,12 +139,13 @@ function stopRecording() {
 	__log('Recording stopped');
 }
 
-function createDownloadLink(blob,encoding) {
+function createDownloadLink(blob,encoding, result) {
 	
 	var url = URL.createObjectURL(blob);
 	var au = document.createElement('audio');
 	var li = document.createElement('li');
 	var link = document.createElement('a');
+	var span = document.createElement('span');
 
 	//add controls to the <audio> element
 	au.controls = true;
@@ -156,10 +155,14 @@ function createDownloadLink(blob,encoding) {
 	link.href = url;
 	link.download = new Date().toISOString() + '.'+encoding;
 	link.innerHTML = link.download;
+	
+	//span
+	span.innerHTML = result;
 
 	//add the new audio and a elements to the li element
 	li.appendChild(au);
 	li.appendChild(link);
+	li.appendChild(span);
 
 	//add the li element to the ordered list
 	recordingsList.appendChild(li);
