@@ -81,7 +81,7 @@ function startRecording() {
 			__log("Encoding complete");
 			createDownloadLink(blob,recorder.encoding);
 			encodingTypeSelect.disabled = false;
-			alert('Sending audio to analize")
+			alert("Sending audio to analize");
 		}
 
 		recorder.setOptions({
