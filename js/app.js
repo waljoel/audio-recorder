@@ -166,6 +166,9 @@ function createDownloadLink(blob,encoding, result) {
 
 	//add the li element to the ordered list
 	recordingsList.appendChild(li);
+	
+	recordButton.disabled = false;
+    	stopButton.disabled = true;
 }
 
 
