@@ -87,7 +87,7 @@ function startRecording() {
 			__log("Encoding complete");
 			encodingTypeSelect.disabled = false;
 			    
-			fetch('https://predict-ailab.uruit.com/audio/classification/predict/401618c0-a23c-11eb-95d6-aa20eddd2f57', {
+			fetch('https://predict.cogniflow.ai/audio/classification/predict/401618c0-a23c-11eb-95d6-aa20eddd2f57', {
 				    method: 'POST',
 				    headers: {
 					'accept': 'application/json',
